@@ -37,6 +37,10 @@ spec:
         ports:
         - containerPort: 6379
           name: redis
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
 
 # db
 --- 
@@ -87,6 +91,10 @@ spec:
         volumeMounts:
         - name: db-data
           mountPath: /var/lib/postgresql/data
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
       volumes:
       - name: db-data
         persistentVolumeClaim:
@@ -142,6 +150,10 @@ spec:
         ports:
         - containerPort: 80
           name: result
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
 
 # vote
 ---
@@ -182,6 +194,10 @@ spec:
         ports:
         - containerPort: 80
           name: vote
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "200m"        
 
 # worker
 --- 
@@ -215,3 +231,7 @@ spec:
       containers: 
       - image: dockersamples/examplevotingapp_worker
         name: worker
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
