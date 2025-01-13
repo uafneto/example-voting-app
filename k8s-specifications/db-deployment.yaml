@@ -29,6 +29,10 @@ spec:
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: db-data
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "200m"
       volumes:
       - name: db-data
         emptyDir: {} 
